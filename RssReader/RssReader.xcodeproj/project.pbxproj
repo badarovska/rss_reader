@@ -17,6 +17,7 @@
 		B9B80BD826D934760030024E /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B9B80BD726D934760030024E /* RxSwift */; };
 		B9B80BDA26D934760030024E /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = B9B80BD926D934760030024E /* RxCocoa */; };
 		B9B80BDC26D934760030024E /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = B9B80BDB26D934760030024E /* RxRelay */; };
+		B9B80BDF26D934B10030024E /* FeedKit in Frameworks */ = {isa = PBXBuildFile; productRef = B9B80BDE26D934B10030024E /* FeedKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9B80BDA26D934760030024E /* RxCocoa in Frameworks */,
+				B9B80BDF26D934B10030024E /* FeedKit in Frameworks */,
 				B9B80BD826D934760030024E /* RxSwift in Frameworks */,
 				B9B80BDC26D934760030024E /* RxRelay in Frameworks */,
 				B9B80BD526D9340E0030024E /* SnapKit in Frameworks */,
@@ -175,6 +177,7 @@
 				B9B80BD726D934760030024E /* RxSwift */,
 				B9B80BD926D934760030024E /* RxCocoa */,
 				B9B80BDB26D934760030024E /* RxRelay */,
+				B9B80BDE26D934B10030024E /* FeedKit */,
 			);
 			productName = RssReader;
 			productReference = B975225526D92F99004B4BC6 /* RssReader.app */;
@@ -250,6 +253,7 @@
 			packageReferences = (
 				B9B80BD326D9340E0030024E /* XCRemoteSwiftPackageReference "SnapKit" */,
 				B9B80BD626D934760030024E /* XCRemoteSwiftPackageReference "RxSwift" */,
+				B9B80BDD26D934B10030024E /* XCRemoteSwiftPackageReference "FeedKit" */,
 			);
 			productRefGroup = B975225626D92F99004B4BC6 /* Products */;
 			projectDirPath = "";
@@ -635,6 +639,14 @@
 				minimumVersion = 6.2.0;
 			};
 		};
+		B9B80BDD26D934B10030024E /* XCRemoteSwiftPackageReference "FeedKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/nmdias/FeedKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.1.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -657,6 +669,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B9B80BD626D934760030024E /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxRelay;
+		};
+		B9B80BDE26D934B10030024E /* FeedKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B9B80BDD26D934B10030024E /* XCRemoteSwiftPackageReference "FeedKit" */;
+			productName = FeedKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
