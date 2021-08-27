@@ -9,9 +9,7 @@
 /* Begin PBXBuildFile section */
 		B975225926D92F99004B4BC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B975225826D92F99004B4BC6 /* AppDelegate.swift */; };
 		B975225B26D92F99004B4BC6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B975225A26D92F99004B4BC6 /* SceneDelegate.swift */; };
-		B975225D26D92F99004B4BC6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B975225C26D92F99004B4BC6 /* ContentView.swift */; };
 		B975225F26D92F9A004B4BC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B975225E26D92F9A004B4BC6 /* Assets.xcassets */; };
-		B975226226D92F9A004B4BC6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B975226126D92F9A004B4BC6 /* Preview Assets.xcassets */; };
 		B975226526D92F9A004B4BC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B975226326D92F9A004B4BC6 /* LaunchScreen.storyboard */; };
 		B975227026D92F9B004B4BC6 /* RssReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B975226F26D92F9B004B4BC6 /* RssReaderTests.swift */; };
 		B975227B26D92F9B004B4BC6 /* RssReaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B975227A26D92F9B004B4BC6 /* RssReaderUITests.swift */; };
@@ -38,9 +36,7 @@
 		B975225526D92F99004B4BC6 /* RssReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RssReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B975225826D92F99004B4BC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B975225A26D92F99004B4BC6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B975225C26D92F99004B4BC6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B975225E26D92F9A004B4BC6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B975226126D92F9A004B4BC6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B975226426D92F9A004B4BC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B975226626D92F9A004B4BC6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B975226B26D92F9B004B4BC6 /* RssReaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RssReaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,21 +97,11 @@
 			children = (
 				B975225826D92F99004B4BC6 /* AppDelegate.swift */,
 				B975225A26D92F99004B4BC6 /* SceneDelegate.swift */,
-				B975225C26D92F99004B4BC6 /* ContentView.swift */,
 				B975225E26D92F9A004B4BC6 /* Assets.xcassets */,
 				B975226326D92F9A004B4BC6 /* LaunchScreen.storyboard */,
 				B975226626D92F9A004B4BC6 /* Info.plist */,
-				B975226026D92F9A004B4BC6 /* Preview Content */,
 			);
 			path = RssReader;
-			sourceTree = "<group>";
-		};
-		B975226026D92F9A004B4BC6 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				B975226126D92F9A004B4BC6 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		B975226E26D92F9B004B4BC6 /* RssReaderTests */ = {
@@ -240,7 +226,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B975226526D92F9A004B4BC6 /* LaunchScreen.storyboard in Resources */,
-				B975226226D92F9A004B4BC6 /* Preview Assets.xcassets in Resources */,
 				B975225F26D92F9A004B4BC6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,7 +253,6 @@
 			files = (
 				B975225926D92F99004B4BC6 /* AppDelegate.swift in Sources */,
 				B975225B26D92F99004B4BC6 /* SceneDelegate.swift in Sources */,
-				B975225D26D92F99004B4BC6 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,7 +421,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"RssReader/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = RssReader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -457,7 +441,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"RssReader/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = RssReader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
