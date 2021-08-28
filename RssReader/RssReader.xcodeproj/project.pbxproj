@@ -109,10 +109,18 @@
 		B92F170C26DA700F00119DD2 /* NewsFeed */ = {
 			isa = PBXGroup;
 			children = (
+				B92F171126DA75E700119DD2 /* ViewModel */,
+			);
+			path = NewsFeed;
+			sourceTree = "<group>";
+		};
+		B92F171126DA75E700119DD2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
 				B92F170D26DA702400119DD2 /* NewsFeedViewModel.swift */,
 				B92F170F26DA709900119DD2 /* NewsFeedViewModelImpl.swift */,
 			);
-			path = NewsFeed;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		B975224C26D92F99004B4BC6 = {
