@@ -13,6 +13,8 @@ protocol NewsFeedViewModel {
     var error: Driver<Bool> { get }
     var isLoading: Driver<Bool> { get }
     var feed: Driver<[RSSFeedItem]> { get }
+    var title: Driver<String> { get }
     
     func getFeed()
+    func getCategory()
 }

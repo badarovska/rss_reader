@@ -13,11 +13,13 @@ import FeedKit
 class NewsFeedViewModelImpl: NewsFeedViewModel {
     
     private var feedProvider: RSSParser!
+    private var categoryTitle: String!
 
     private var errorSubject: PublishSubject<Bool> = PublishSubject()
     private var loadingSubject: PublishSubject<Bool> = PublishSubject()
     private var feedSubject: PublishSubject<[RSSFeedItem]> = PublishSubject()
-    
+    private var titleSubject: PublishSubject<String> = PublishSubject()
+
     var error: Driver<Bool> {
         return errorSubject.asDriver(onErrorJustReturn: true)
     }
@@ -30,12 +32,22 @@ class NewsFeedViewModelImpl: NewsFeedViewModel {
         return feedSubject.asDriver(onErrorJustReturn: [])
     }
     
-    init(feedProvider: RSSParser) {
+    var title: Driver<String> {
+        return titleSubject.asDriver(onErrorJustReturn: "")
+    }
+
+    
+    init(categoryTitle: String, feedProvider: RSSParser) {
+        self.categoryTitle = categoryTitle
         self.feedProvider = feedProvider
     }
     
     deinit {
         feedProvider.abort()
+    }
+    
+    func getCategory() {
+        titleSubject.onNext(categoryTitle)
     }
     
     func getFeed() {
