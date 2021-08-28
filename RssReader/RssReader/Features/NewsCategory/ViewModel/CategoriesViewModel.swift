@@ -6,12 +6,12 @@
 //
 
 import Foundation
-import RxSwift
+import RxCocoa
 
 protocol CategoriesViewModel {
-    var error: PublishSubject<Error> { get }
-    var loading: PublishSubject<Bool> { get }
-    var categories: PublishSubject<[Category]> { get }
+    var error: Driver<Bool> { get }
+    var loading: Driver<Bool> { get }
+    var categories: Driver<[Category]> { get }
     
     func getCategories() 
 }
