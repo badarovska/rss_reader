@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B92F170126DA4B6200119DD2 /* CategoriesViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92F170026DA4B6200119DD2 /* CategoriesViewModelImpl.swift */; };
 		B975225926D92F99004B4BC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B975225826D92F99004B4BC6 /* AppDelegate.swift */; };
 		B975225B26D92F99004B4BC6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B975225A26D92F99004B4BC6 /* SceneDelegate.swift */; };
 		B975225F26D92F9A004B4BC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B975225E26D92F9A004B4BC6 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 		B9B80BE826D948190030024E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B80BE726D948190030024E /* Category.swift */; };
 		B9B80BEB26D948C90030024E /* CategoriesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B80BEA26D948C90030024E /* CategoriesProvider.swift */; };
 		B9B80BEF26D94A710030024E /* HardcodedCategoriesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B80BEE26D94A710030024E /* HardcodedCategoriesProvider.swift */; };
+		B9B80BF426DA46780030024E /* CategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9B80BF326DA46780030024E /* CategoriesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B92F170026DA4B6200119DD2 /* CategoriesViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModelImpl.swift; sourceTree = "<group>"; };
 		B975225526D92F99004B4BC6 /* RssReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RssReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B975225826D92F99004B4BC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B975225A26D92F99004B4BC6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +63,7 @@
 		B9B80BE726D948190030024E /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		B9B80BEA26D948C90030024E /* CategoriesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesProvider.swift; sourceTree = "<group>"; };
 		B9B80BEE26D94A710030024E /* HardcodedCategoriesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HardcodedCategoriesProvider.swift; sourceTree = "<group>"; };
+		B9B80BF326DA46780030024E /* CategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +160,9 @@
 		B9B80BD126D931E40030024E /* NewsCategory */ = {
 			isa = PBXGroup;
 			children = (
+				B9B80BF226DA46180030024E /* ViewModel */,
+				B9B80BE526D945F60030024E /* CategoriesViewController.swift */,
+				B9B80BF026DA3BB10030024E /* CategoriesCollectionViewCell.swift */,
 			);
 			path = NewsCategory;
 			sourceTree = "<group>";
@@ -193,6 +200,15 @@
 				B9B80BEE26D94A710030024E /* HardcodedCategoriesProvider.swift */,
 			);
 			path = NewsCategories;
+			sourceTree = "<group>";
+		};
+		B9B80BF226DA46180030024E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B9B80BF326DA46780030024E /* CategoriesViewModel.swift */,
+				B92F170026DA4B6200119DD2 /* CategoriesViewModelImpl.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,7 +353,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B975225926D92F99004B4BC6 /* AppDelegate.swift in Sources */,
+				B9B80BF426DA46780030024E /* CategoriesViewModel.swift in Sources */,
 				B9B80BEF26D94A710030024E /* HardcodedCategoriesProvider.swift in Sources */,
+				B92F170126DA4B6200119DD2 /* CategoriesViewModelImpl.swift in Sources */,
 				B975225B26D92F99004B4BC6 /* SceneDelegate.swift in Sources */,
 				B9B80BE826D948190030024E /* Category.swift in Sources */,
 				B9B80BE226D936500030024E /* RSSParser.swift in Sources */,
