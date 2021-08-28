@@ -7,11 +7,12 @@
 
 import Foundation
 import FeedKit
+import RxSwift
 
-typealias RSSParserCallback = (Result<RSSFeed?, ParserError>) -> Void
+typealias RSSParserCallback = (Result<[RSSFeedItem], ParserError>) -> Void
 
 protocol RSSParser {
-    func parse() -> Result<RSSFeed?, ParserError>
+    func parse() -> Result<[RSSFeedItem], ParserError>
     func parseAsync(callback: @escaping RSSParserCallback)
     func parseAsync(queue: DispatchQueue, callback: @escaping RSSParserCallback)
     func abort()
