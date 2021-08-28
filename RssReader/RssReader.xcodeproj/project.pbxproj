@@ -196,9 +196,9 @@
 		B9B80BCF26D931B10030024E /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				B92F171626DA8C7600119DD2 /* WebView */,
 				B9B80BD126D931E40030024E /* NewsCategories */,
 				B92F170C26DA700F00119DD2 /* NewsFeed */,
+				B92F171626DA8C7600119DD2 /* WebView */,
 			);
 			path = Features;
 			sourceTree = "<group>";
