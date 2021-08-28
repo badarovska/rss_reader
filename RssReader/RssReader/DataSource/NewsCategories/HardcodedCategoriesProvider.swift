@@ -20,7 +20,7 @@ class HardcodedCagegoriesProvider: CategoriesProvider {
         let news = Category(title: "News",
                             rssURL: URL(string: "https://www.24sata.hr/feeds/news.xml")!)
         
-        let show = Category(title: "News",
+        let show = Category(title: "Show",
                             rssURL: URL(string: "https://www.24sata.hr/feeds/show.xml")!)
         
         let sport = Category(title: "Sport",
@@ -32,7 +32,7 @@ class HardcodedCagegoriesProvider: CategoriesProvider {
         let tech = Category(title: "Tech",
                             rssURL: URL(string: "https://www.24sata.hr/feeds/tech.xml")!)
         
-        let viral = Category(title: "Tech",
+        let viral = Category(title: "Viral",
                              rssURL: URL(string: "https://www.24sata.hr/feeds/fun.xml")!)
         
         let categoriesList = [popular, latest, news, show, sport, lifestyle, tech, viral]
