@@ -17,7 +17,7 @@ class DependencyContainer { }
 
 extension DependencyContainer: CategoriesFactory {
     func makeCategoriesProvider() -> CategoriesProvider {
-        return HardcodedCagegoriesProvider()
+        return DefaultCagegoriesProvider()
     }
     
     func makeCategoryViewModel() -> CategoriesViewModel {

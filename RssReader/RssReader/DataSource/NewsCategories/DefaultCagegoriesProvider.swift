@@ -6,10 +6,9 @@
 //
 
 import Foundation
-import RxSwift
 
-class HardcodedCagegoriesProvider: CategoriesProvider {
-    func getCategories() -> Observable<[Category]> {
+class DefaultCagegoriesProvider: CategoriesProvider {
+    func getCategories() -> [Category] {
         
         let popular = Category(title: "Aktualno",
                                rssURL: URL(string: "https://www.24sata.hr/feeds/aktualno.xml")!)
@@ -36,6 +35,6 @@ class HardcodedCagegoriesProvider: CategoriesProvider {
                              rssURL: URL(string: "https://www.24sata.hr/feeds/fun.xml")!)
         
         let categoriesList = [popular, latest, news, show, sport, lifestyle, tech, viral]
-        return Observable.just(categoriesList)
+        return categoriesList
     }
 }

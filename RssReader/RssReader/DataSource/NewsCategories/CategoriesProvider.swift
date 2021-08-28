@@ -9,5 +9,5 @@ import Foundation
 import RxSwift
 
 protocol CategoriesProvider {
-    func getCategories() -> Observable<[Category]>
+    func getCategories() -> [Category]
 }

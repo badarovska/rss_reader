@@ -10,12 +10,10 @@ import RxCocoa
 import RxSwift
 
 class CategoriesViewController: UIViewController {
-    private let loadingIndicator = UIActivityIndicatorView(style: .large)
     private let collectionView = UICollectionView(frame: .zero,
                                                   collectionViewLayout: UICollectionViewFlowLayout())
     
     private var viewModel: CategoriesViewModel!
-    private let categories: [Category] = []
     private let disposeBag = DisposeBag()
     
     init(viewModel: CategoriesViewModel) {
@@ -49,14 +47,6 @@ class CategoriesViewController: UIViewController {
     }
     
     private func setupBindings() {
-        viewModel.loading
-            .drive(loadingIndicator.rx.isAnimating)
-            .disposed(by: disposeBag)
-        
-        viewModel.loading
-            .drive(loadingIndicator.rx.isHidden)
-            .disposed(by: disposeBag)
-        
         viewModel.categories
             .drive(collectionView.rx.items(cellIdentifier: CategoriesCollectionViewCell.reuseIdentifier, cellType: CategoriesCollectionViewCell.self)) {  row, data, cell in
                 cell.set(title: data.title)
