@@ -159,19 +159,19 @@
 		B9B80BCF26D931B10030024E /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				B9B80BD126D931E40030024E /* NewsCategory */,
+				B9B80BD126D931E40030024E /* NewsCategories */,
 			);
 			path = Features;
 			sourceTree = "<group>";
 		};
-		B9B80BD126D931E40030024E /* NewsCategory */ = {
+		B9B80BD126D931E40030024E /* NewsCategories */ = {
 			isa = PBXGroup;
 			children = (
 				B9B80BF226DA46180030024E /* ViewModel */,
 				B9B80BE526D945F60030024E /* CategoriesViewController.swift */,
 				B9B80BF026DA3BB10030024E /* CategoriesCollectionViewCell.swift */,
 			);
-			path = NewsCategory;
+			path = NewsCategories;
 			sourceTree = "<group>";
 		};
 		B9B80BD226D9323D0030024E /* Models */ = {
