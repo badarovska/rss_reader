@@ -14,11 +14,17 @@ class CategoriesViewController: UIViewController {
                                                   collectionViewLayout: UICollectionViewFlowLayout())
     
     private var viewModel: CategoriesViewModel!
+    private var feedFactory: NewsFeedFactory!
     private let disposeBag = DisposeBag()
     
-    init(viewModel: CategoriesViewModel) {
+    init(viewModel: CategoriesViewModel,
+         newsFeedFactory: NewsFeedFactory) {
+        
         self.viewModel = viewModel
+        self.feedFactory = newsFeedFactory
+        
         super.init(nibName: nil, bundle: nil)
+        setupViews()
     }
     
     required init?(coder: NSCoder) {
@@ -26,13 +32,13 @@ class CategoriesViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        setupViews()
         setupBindings()
         viewModel.getCategories()
     }
     
     private func setupViews() {
         title = "News"
+
         view.backgroundColor = .white
 
         collectionView.backgroundColor = .white
@@ -51,6 +57,14 @@ class CategoriesViewController: UIViewController {
             .drive(collectionView.rx.items(cellIdentifier: CategoriesCollectionViewCell.reuseIdentifier, cellType: CategoriesCollectionViewCell.self)) {  row, data, cell in
                 cell.set(title: data.title)
             }.disposed(by: disposeBag)
+        
+        collectionView.rx
+                .modelSelected(Category.self)
+                .subscribe(onNext: { [unowned self] (category) in
+                    let feedViewController = self.feedFactory.makeNewsFeedViewController(for: category)
+                    self.navigationController?.pushViewController(feedViewController,
+                                                                   animated: true)
+                }).disposed(by: disposeBag)
     }
 }
 

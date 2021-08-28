@@ -13,6 +13,12 @@ protocol CategoriesFactory {
     func makeCategoriesViewController() -> CategoriesViewController
 }
 
+protocol NewsFeedFactory {
+    func makeNewsFeedProvider(for url: URL) -> RSSParser
+    func makeNewsFeedViewModel(for category: Category) -> NewsFeedViewModel
+    func makeNewsFeedViewController(for category: Category) -> NewsFeedViewController
+}
+
 class DependencyContainer { }
 
 extension DependencyContainer: CategoriesFactory {
@@ -27,6 +33,26 @@ extension DependencyContainer: CategoriesFactory {
 
     func makeCategoriesViewController() -> CategoriesViewController {
         let viewModel = makeCategoryViewModel()
-        return CategoriesViewController(viewModel: viewModel)
+        let categoriesController = CategoriesViewController(viewModel: viewModel,
+                                                            newsFeedFactory: self)
+        return categoriesController
+    }
+}
+
+extension DependencyContainer: NewsFeedFactory {
+    func makeNewsFeedProvider(for url: URL) -> RSSParser {
+        return FeedKitParser(url: url)
+    }
+    
+    func makeNewsFeedViewModel(for category: Category) -> NewsFeedViewModel {
+        let feedProvider = makeNewsFeedProvider(for: category.rssURL)
+        let viewModel = NewsFeedViewModelImpl(categoryTitle: category.title,
+                                              feedProvider: feedProvider)
+        return viewModel
+    }
+    
+    func makeNewsFeedViewController(for category: Category) -> NewsFeedViewController {
+        let viewModel = makeNewsFeedViewModel(for: category)
+        return NewsFeedViewController(viewModel: viewModel)
     }
 }
