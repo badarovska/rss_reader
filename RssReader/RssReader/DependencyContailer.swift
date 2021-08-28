@@ -19,6 +19,10 @@ protocol NewsFeedFactory {
     func makeNewsFeedViewController(for category: Category) -> NewsFeedViewController
 }
 
+protocol WebViewFactory {
+    func makeWebViewController(for url: URL) -> WebViewController
+}
+
 class DependencyContainer { }
 
 extension DependencyContainer: CategoriesFactory {
@@ -53,6 +57,13 @@ extension DependencyContainer: NewsFeedFactory {
     
     func makeNewsFeedViewController(for category: Category) -> NewsFeedViewController {
         let viewModel = makeNewsFeedViewModel(for: category)
-        return NewsFeedViewController(viewModel: viewModel)
+        return NewsFeedViewController(viewModel: viewModel,
+                                      webFactory: self)
+    }
+}
+
+extension DependencyContainer: WebViewFactory {
+    func makeWebViewController(for url: URL) -> WebViewController {
+        return WebViewController(url: url)
     }
 }

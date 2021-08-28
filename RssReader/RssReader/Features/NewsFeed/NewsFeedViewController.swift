@@ -16,10 +16,12 @@ class NewsFeedViewController: UIViewController {
     private let tableView = UITableView()
     
     private var viewModel: NewsFeedViewModel!
+    private var factory: WebViewFactory!
     private var disposeBag = DisposeBag()
     
-    init(viewModel: NewsFeedViewModel) {
+    init(viewModel: NewsFeedViewModel, webFactory: WebViewFactory) {
         self.viewModel = viewModel
+        self.factory = webFactory
         super.init(nibName: nil, bundle: nil)
     }
         
@@ -67,9 +69,23 @@ class NewsFeedViewController: UIViewController {
             .drive(loadingIndicator.rx.isHidden)
             .disposed(by: disposeBag)
         
-        viewModel.feed.drive(tableView.rx.items(cellIdentifier: FeedTableViewCell.reuseIdentifier,
-                                                cellType: FeedTableViewCell.self)) { row, data, cell in
+        viewModel.feed.drive(tableView
+                                .rx
+                                .items(cellIdentifier: FeedTableViewCell.reuseIdentifier,
+                                       cellType: FeedTableViewCell.self)) { row, data, cell in
             cell.set(title: data.title ?? "")
         }.disposed(by: disposeBag)
+        
+        tableView.rx
+            .modelSelected(RSSFeedItem.self)
+            .subscribe(onNext: { [unowned self] (category) in
+                guard let link = category.link,
+                      let url = URL(string: link) else { return }
+                
+                let webViewController = self.factory.makeWebViewController(for: url)
+                self.navigationController?.pushViewController(webViewController,
+                                                              animated: true)
+            }).disposed(by: disposeBag)
+        
     }
 }
