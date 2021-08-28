@@ -26,14 +26,14 @@ class CategoriesCollectionViewCell: UICollectionViewCell {
     private func setupViews() {
         titleLabel.numberOfLines = 0
         
-        titleLabel.font = UIFont(name: "Courier-Bold", size: 20)
+        titleLabel.font = UIFont(name: "AvenirNext-Medium", size: 20)
         titleLabel.textAlignment = .center
 
-        titleLabel.textColor = .black
+        titleLabel.textColor = UIColor.black
         titleLabel.backgroundColor = .white
         
         titleLabel.layer.borderWidth = 1
-        titleLabel.layer.borderColor = UIColor.black.cgColor
+        titleLabel.layer.borderColor = UIColor.systemGray4.cgColor
         titleLabel.layer.cornerRadius = 5
         titleLabel.clipsToBounds = true
         
