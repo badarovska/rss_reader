@@ -69,6 +69,13 @@ class NewsFeedViewController: UIViewController {
             .drive(loadingIndicator.rx.isHidden)
             .disposed(by: disposeBag)
         
+        viewModel.error
+            .asObservable()
+            .subscribe(onNext: { [weak self] errorMessage in
+                self?.show(errorMessage: errorMessage)
+            })
+            .disposed(by: disposeBag)
+        
         viewModel.feed.drive(tableView
                                 .rx
                                 .items(cellIdentifier: FeedTableViewCell.reuseIdentifier,
@@ -87,5 +94,17 @@ class NewsFeedViewController: UIViewController {
                                                               animated: true)
             }).disposed(by: disposeBag)
         
+    }
+    
+    private func show(errorMessage: String) {
+        let errorLabel = UILabel()
+        errorLabel.textColor = .black
+        errorLabel.textAlignment = .center
+        errorLabel.text = errorMessage
+        errorLabel.numberOfLines = 0
+        errorLabel.font = UIFont(name: "AvenirNext-Medium",
+                                 size: 20)
+        
+        tableView.backgroundView = errorLabel
     }
 }

@@ -10,18 +10,30 @@ import RxSwift
 import RxCocoa
 import FeedKit
 
+fileprivate enum NewsFeedError: String {
+    case genericError = """
+        Whoops!
+        An error happened!
+    """
+    
+    case noFeedError = """
+        Whoops!
+        No news for this category!
+    """
+}
+
 class NewsFeedViewModelImpl: NewsFeedViewModel {
     
     private var feedProvider: RSSParser!
     private var categoryTitle: String!
 
-    private var errorSubject: PublishSubject<Bool> = PublishSubject()
+    private var errorSubject: PublishSubject<String> = PublishSubject()
     private var loadingSubject: PublishSubject<Bool> = PublishSubject()
     private var feedSubject: PublishSubject<[RSSFeedItem]> = PublishSubject()
     private var titleSubject: PublishSubject<String> = PublishSubject()
 
-    var error: Driver<Bool> {
-        return errorSubject.asDriver(onErrorJustReturn: true)
+    var error: Driver<String> {
+        return errorSubject.asDriver(onErrorJustReturn: "")
     }
     
     var isLoading: Driver<Bool> {
@@ -35,7 +47,6 @@ class NewsFeedViewModelImpl: NewsFeedViewModel {
     var title: Driver<String> {
         return titleSubject.asDriver(onErrorJustReturn: "")
     }
-
     
     init(categoryTitle: String, feedProvider: RSSParser) {
         self.categoryTitle = categoryTitle
@@ -58,8 +69,15 @@ class NewsFeedViewModelImpl: NewsFeedViewModel {
             case .success(let feed):
                 self?.feedSubject.onNext(feed)
                 self?.loadingSubject.onNext(false)
-            case .failure(_):
-                self?.errorSubject.onNext(true)
+            case .failure(let error):
+                switch  error {
+                case .feedNotFound:
+                    let errorMessage = NewsFeedError.noFeedError.rawValue
+                    self?.errorSubject.onNext(errorMessage)
+                default:
+                    let errorMessage = NewsFeedError.genericError.rawValue
+                    self?.errorSubject.onNext(errorMessage)
+                }
                 self?.loadingSubject.onNext(false)
             }
         }
