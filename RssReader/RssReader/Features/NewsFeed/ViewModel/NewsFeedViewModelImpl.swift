@@ -10,17 +10,7 @@ import RxSwift
 import RxCocoa
 import FeedKit
 
-fileprivate enum NewsFeedError: String {
-    case genericError = """
-        Whoops!
-        An error happened!
-    """
-    
-    case noFeedError = """
-        Whoops!
-        No news for this category!
-    """
-}
+
 
 class NewsFeedViewModelImpl: NewsFeedViewModel {
     
@@ -67,8 +57,13 @@ class NewsFeedViewModelImpl: NewsFeedViewModel {
         feedProvider.parseAsync { [weak self] result in
             switch result {
             case .success(let feed):
-                self?.feedSubject.onNext(feed)
-                self?.loadingSubject.onNext(false)
+                if feed.isEmpty {
+                    let errorMessage = NewsFeedError.noFeedError.rawValue
+                    self?.errorSubject.onNext(errorMessage)
+                } else {
+                    self?.feedSubject.onNext(feed)
+                    self?.loadingSubject.onNext(false)
+                }
             case .failure(let error):
                 switch  error {
                 case .feedNotFound:
